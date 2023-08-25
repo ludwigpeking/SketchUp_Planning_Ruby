@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <script>
+    function submitForm() {
+            var form = document.getElementById('myForm');
+            var values = {
+              area: parseFloat(form.elements['area'].value),
+              type: form.elements['type'].value,
+              comment: form.elements['comment'].value,
+              width: parseFloat(form.elements['width'].value),
+              depth: parseFloat(form.elements['depth'].value),
+              marketPrediction: [
+                [parseFloat(form.elements['price1'].value), parseFloat(form.elements['velocity1'].value)],
+                [parseFloat(form.elements['price2'].value), parseFloat(form.elements['velocity2'].value)],
+                [parseFloat(form.elements['price3'].value), parseFloat(form.elements['velocity3'].value)]
+              ],
+              constructionCostPerSqm: parseFloat(form.elements['constructionCost'].value),
+              netAreaRatio: parseFloat(form.elements['netAreaRatio'].value),
+              vertices: [
+                [0, 0], [12, 0], [12, 11.5], [11.5, 0]
+              ]
+            };
+            sketchup.submitForm(JSON.stringify(values));
+          }
+    </script>
+
+    <form id="myForm">
+        <label for="area">Area:</label>
+        <input type="text" id="area" name="area" /><br />
+
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" /><br />
+
+        <label for="comment">Comment:</label>
+        <input type="text" id="comment" name="comment" /><br />
+
+        <label for="width">Width:</label>
+        <input type="text" id="width" name="width" /><br />
+
+        <label for="depth">Depth:</label>
+        <input type="text" id="depth" name="depth" /><br />
+
+        <label for="price1">Price 1:</label>
+        <input type="text" id="price1" name="price1" /><br />
+
+        <label for="velocity1">Velocity 1:</label>
+        <input type="text" id="velocity1" name="velocity1" /><br />
+
+        <label for="price2">Price 2:</label>
+        <input type="text" id="price2" name="price2" /><br />
+
+        <label for="velocity2">Velocity 2:</label>
+        <input type="text" id="velocity2" name="velocity2" /><br />
+
+        <label for="price3">Price 3:</label>
+        <input type="text" id="price3" name="price3" /><br />
+
+        <label for="velocity3">Velocity 3:</label>
+        <input type="text" id="velocity3" name="velocity3" /><br />
+
+        <label for="constructionCost">Construction Cost:</label>
+        <input type="text" id="constructionCost" name="constructionCost" /><br />
+
+        <label for="netAreaRatio">Net Area Ratio:</label>
+        <input type="text" id="netAreaRatio" name="netAreaRatio" /><br />
+
+        <input type="button" value="Submit" onclick="submitForm()" />
+    </form>
+</html>
